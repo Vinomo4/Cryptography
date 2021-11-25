@@ -1,0 +1,9 @@
+EJERCICIO 1
+
+Verificar que una firma hecha con curvas elipticas es correcta.
+
+Input: La firma
+
+Output: Verificar si esta bien hecha o no.
+
+Nos interesa conocer el punto b.
