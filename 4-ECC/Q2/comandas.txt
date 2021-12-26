@@ -1,4 +1,0 @@
-
-ANALISIS DE CERTIFICADOS RECHAZADOS
-
-openssl crl -inform DER -text -in TERENASSLCA3.crl -out TERENASSLCA3.txt

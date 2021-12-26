@@ -21,21 +21,21 @@ def check_point(x,y):
     return pow(y,2,p) == (pow(x,3,p) - 3*x + b)%p
 
 
-# a) comprobar que el orden es un numero primo.
+# a) Checking that the order of the curve is prime..
 print("The order of the curve is prime" if sympy.isprime(n) else "The order of the curve isn't prime")
 
-# b) Comprobando que la clave publica es un punto de la curva.
+# b) Checking that the PK is a point of the cruve.
 print("The public key is a point of the curve" if check_point(Qx,Qy) else "The public key isn't a point of the curve")
+
 # This can also be checked using the following line.
 #print("The public key is a point of the curve" if curve.is_on_curve(wikipedia_publickey)else "The public key isn't a point of the curve")
 
-# c) Calcular el orden del punto P.
+# c) As the order of the curve is a prime number, the order of all points of the curve is equal to such prime.
+# This can be checked with Surge MAth (view report).
 
-# Hecho con Suge Math. Fotografia en el discord canal Cripto.
+# d) Checking signature.
 
-# d) Comprobar firma
-
-# Construccion del mensaje
+# Building the message.
 
 preamble = 64*'20' +''.join(format(ord(c),'x') for c in 'TLS 1.3, server CertificateVerify')+'00'
 
@@ -49,7 +49,8 @@ print("The message is:",message)
 # Converting the message to numeric.
 message = int(message,16)
 
-# Verificacion del mensaje
+# Verifying the signature
+
 w1 = message * pow(f2,-1,n) % n
 w2 = f1 * pow(f2,-1,n) % n
 
